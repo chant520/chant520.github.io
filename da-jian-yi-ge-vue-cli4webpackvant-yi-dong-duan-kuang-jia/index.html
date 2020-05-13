@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+<title>搭建一个vue-cli4+webpack+vant移动端框架 - 南柯一剑🗡</title>
+<meta name="description" content="温故而知新">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link type='text/css' rel='stylesheet' href='https://chant520.github.io/styles/main.css' media='screen' />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src='https://chant520.github.io/media/scripts/jquery.js'></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+
+<body>
+  <div class="layout theme-dark">
+    <div class="layout-header">
+
+	<div class="layout-header-main">
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+
+					<div class="navbar">
+
+						<div class="logo">
+							<a href="https://chant520.github.io">
+								<img class="logo"
+									src="https://chant520.github.io/media/images/site_avatar.png?v=1589393339869"
+									alt="">
+							</a>
+						</div>
+
+						<div class="menu d-md-inline-block d-none">
+							<ul class="layout-navigation-list">
+								
+								<li class="layout-navigation-item"><a title="首页"
+										href="/">首页</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="归档"
+										href="/archives">归档</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="标签"
+										href="/tags">标签</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="关于"
+										href="/post/about">关于</a>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="item d-md-inline-block d-none">
+							<div class="search-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						</div>
+
+
+
+						<div class="d-md-inline-block d-none">
+							<div class="search-lightbox">
+								<div class="search-body">
+
+									<form id="gridea-search-form" data-update="1589393339869" action="/search/" class="search-form">
+										<input type="text" name="q" id="s" value="" class="search-field" placeholder="请输入搜索关键词" aria-label="请输入搜索关键词" required="">
+										<button type="submit" class="submit" aria-label="Submit">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="nav d-md-none d-inline-block">
+							<div class="trigger">
+								<i class="fa fa-bars layout-btn-toggle" aria-hidden="true"></i>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+</div>
+    <div class="layout-collapse d-md-none">
+	<div class="layout-collapse-main">
+		<ul class="layout-collapse-list">
+			
+			<li class="layout-collapse-item"><a title="首页" href="/">首页</a></li>
+			
+			<li class="layout-collapse-item"><a title="归档" href="/archives">归档</a></li>
+			
+			<li class="layout-collapse-item"><a title="标签" href="/tags">标签</a></li>
+			
+			<li class="layout-collapse-item"><a title="关于" href="/post/about">关于</a></li>
+			
+
+		</ul>
+	</div>
+</div>
+
+    <div class="layout-content">
+      <div class="layout-content-main">
+        <div class="container">
+          <div class="row justify-content-lg-center">
+            <div class="col-12 col-lg-9">
+              <div class="layout-post">
+                <div class="layout-post-body">
+                  <div class="row">
+
+                    <div class="col-12 col-lg-10">
+                      <div class="layout-post-main m-right m-md-right">
+                        <div class="layout-post-header">
+                          <h1 class="layout-post-title">搭建一个vue-cli4+webpack+vant移动端框架</h1>
+                          <div class="layout-post-meta">
+                            <div class="item">
+                               <a href="https://chant520.github.io/GU6q6gZ02/" class="post--keyword"
+                                data-title="vue" data-type="post_tag" data-term-id="39">vue</a>
+                               <a href="https://chant520.github.io/uHgpIGuYa_/" class="post--keyword"
+                                data-title="vant" data-type="post_tag" data-term-id="39">vant</a>
+                               <a href="https://chant520.github.io/phN6TxH43b/" class="post--keyword"
+                                data-title="JavaScript" data-type="post_tag" data-term-id="39">JavaScript</a>
+                              
+                            </div>
+                            <div class="item">
+                              <span>2020-05-14</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="layout-post-content">
+                          <div class="layout-post-item">
+                            
+                            <!-- more -->
+<p>技术栈：vue-cli4 + webpack4 + vant + axios + less + postcss-px2rem</p>
+<p>要包括如下技术点：</p>
+<ul>
+<li>vue-cli4脚手架</li>
+<li>vant按需引入</li>
+<li>移动端rem适配</li>
+<li>axios拦截封装</li>
+<li>util工具类函数封装</li>
+<li>vue-router配置</li>
+<li>登录权限校验</li>
+<li>多环境变量配置</li>
+<li>vue.config.js配置</li>
+<li>toast组件封装</li>
+<li>dialog组件封装</li>
+<li>跨域代理设置</li>
+<li>webpack打包可视化分析</li>
+<li>CDN资源优化</li>
+<li>gzip打包优化</li>
+<li>首页添加骨架屏</li>
+</ul>
+<h3 id="vue初始化项目">vue初始化项目</h3>
+<pre><code class="language-bash">vue create [project name]
+</code></pre>
+<h3 id="安装vant">安装vant</h3>
+<pre><code class="language-bash"># 通过 npm 安装
+npm i vant -S
+
+# 通过 yarn 安装
+yarn add vant
+</code></pre>
+<h3 id="安装babel-plugin-import">安装<code>babel-plugin-import</code></h3>
+<pre><code class="language-bash">npm i babel-plugin-import -D
+</code></pre>
+<blockquote>
+<p>记得加<code>-D</code>因为我们只给开发者使用</p>
+</blockquote>
+<h3 id="配置babel-plugin-import">配置<code>babel-plugin-import</code></h3>
+<pre><code class="language-javascript">// 在.babelrc 中添加配置
+{
+  &quot;plugins&quot;: [
+    [&quot;import&quot;, {
+      &quot;libraryName&quot;: &quot;vant&quot;,
+      &quot;libraryDirectory&quot;: &quot;es&quot;,
+      &quot;style&quot;: true
+    }]
+  ]
+}
+</code></pre>
+<pre><code class="language-javascript">// 对于使用 babel7 的用户，可以在 babel.config.js 中配置
+module.exports = {
+  plugins: [
+    ['import', {
+      libraryName: 'vant',
+      libraryDirectory: 'es',
+      style: true
+    }, 'vant']
+  ]
+};
+</code></pre>
+<blockquote>
+<p>按需引入：代码中直接引入 Vant 组件，插件会自动将代码转化为方式二中的按需引入形式</p>
+<pre><code class="language-javascript">import Vue from 'vue'
+import { Button } from 'vant'
+
+Vue.use(Button)
+</code></pre>
+</blockquote>
+<h3 id="rem-适配">rem 适配</h3>
+<ul>
+<li>安装<code>px2rem-loader</code>插件</li>
+</ul>
+<pre><code class="language-bash">npm install px2rem-loader --save-dev
+</code></pre>
+<ul>
+<li>在 vue.config.js 进行如下配置</li>
+</ul>
+<pre><code class="language-js">css: {
+    // css预设器配置项
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 100
+          })
+        ]
+      }
+    }
+  }
+</code></pre>
+<ul>
+<li>在 main.js 设置 html 跟字体大小</li>
+</ul>
+<pre><code class="language-javascript">function initRem() {
+  let cale = window.screen.availWidth &gt; 750 ? 2 : window.screen.availWidth / 375
+  window.document.documentElement.style.fontSize = `${100 * cale}px`
+}
+
+window.addEventListener('resize', function() {
+  initRem()
+})
+</code></pre>
+<h3 id="使用axios封装请求">使用<code>axios</code>封装请求</h3>
+<ul>
+<li>安装</li>
+</ul>
+<pre><code class="language-bash">npm install axios
+</code></pre>
+<ul>
+<li>设置请求拦截和响应拦截</li>
+</ul>
+<pre><code class="language-javascript">// 文件 ./src/utils/axios.js
+import axios from 'axios'
+import vm from 'vm'
+
+const PRODUCT_URL = 'https://xxxx.com'
+const MOCK_URL = 'http://xxxx.com'
+let http = axios.create({
+  baseURL: process.env.NODE_ENV === 'production' ? PRODUCT_URL : MOCK_URL,
+})
+// 请求拦截器
+http.interceptors.request.use(
+  (config) =&gt; {
+    // 设置token，Content-Type
+    var token = sessionStorage.getItem('token')
+    config.headers['token'] = token
+    config.headers['Content-Type'] = 'application/json;charset=UTF-8'
+    // 请求显示loading效果
+    if (config.loading === true) {
+      vm.$loading.show()
+    }
+    return config
+  },
+  (error) =&gt; {
+    vm.$loading.hide()
+    return Promise.reject(error)
+  }
+)
+// 响应拦截器
+http.interceptors.response.use(
+  (res) =&gt; {
+    vm.$loading.hide()
+    // token失效，重新登录
+    if (res.data.code === 401) {
+      //  重新登录
+    }
+    return res
+  },
+  (error) =&gt; {
+    vm.$loading.hide()
+    return Promise.reject(error)
+  }
+)
+</code></pre>
+<ul>
+<li>封装 <code>get</code> 和 <code>post</code> 请求方法</li>
+</ul>
+<pre><code class="language-javascript">// 文件 ./src/utils/axios.js
+
+
+...
+function get(url, data, lodaing) {
+  return new Promise((resolve, reject) =&gt; {
+    http
+      .get(url)
+      .then(
+        (response) =&gt; {
+          resolve(response)
+        },
+        (err) =&gt; {
+          reject(err)
+        }
+      )
+      .catch((error) =&gt; {
+        reject(error)
+      })
+  })
+}
+
+function post(url, data, loading) {
+  return new Promise((resolve, reject) =&gt; {
+    http
+      .post(url, data, { loading: loading })
+      .then(
+        (response) =&gt; {
+          resolve(response)
+        },
+        (err) =&gt; {
+          reject(err)
+        }
+      )
+      .catch((error) =&gt; {
+        reject(error)
+      })
+  })
+}
+
+export { get, post }
+</code></pre>
+<ul>
+<li>把 <code>get</code>，<code>post</code> 方法挂载到 vue 实例上</li>
+</ul>
+<pre><code class="language-javascript">// main.js
+import { get, post } from './utils/axios'
+
+Vue.prototype.$http = { get, post }
+</code></pre>
+<h3 id="工具类函数封装">工具类函数封装</h3>
+<p>下面是一个示例</p>
+<ul>
+<li>封装方法</li>
+</ul>
+<pre><code class="language-javascript">// 文件 utils/common.js
+export default {
+  install (Vue, options) {
+    Vue.prototype.util = {
+      method1(val) {
+        ...
+      },
+      method2 (val) {
+       ...
+      },
+  }
+}
+</code></pre>
+<ul>
+<li>在 main.js 通过 vue.use()注册</li>
+</ul>
+<pre><code class="language-java">import utils from './utils/common'
+Vue.use(utils)
+</code></pre>
+<h3 id="vue-router-配置">vue-router 配置</h3>
+<ul>
+<li>vue-router 三种配置方式</li>
+</ul>
+<pre><code class="language-javascript">// 1、Vue异步组件技术：
+{
+  path: '/home',
+  name: 'Home',
+  component: resolve =&gt; reqire(['../views/Home.vue'], resolve)
+}
+
+// 2、es6提案的import()
+{
+  path: '/',
+  name: 'home',
+  component: () =&gt; import('../views/Home.vue')
+}
+
+// 3、webpack提供的require.ensure()
+{
+  path: '/home',
+  name: 'Home',
+  component: r =&gt; require.ensure([],() =&gt;  r(require('../views/Home.vue')), 'home')
+}
+</code></pre>
+<blockquote>
+<p>本项目采用的是第二种方式，为了后续 webpack 打包优化。</p>
+</blockquote>
+<h3 id="改变单页面应用的-title">改变单页面应用的 title</h3>
+<pre><code class="language-javascript">router.beforeEach((to, from, next) =&gt; {
+  document.title = to.meta.title
+})
+</code></pre>
+<h3 id="登录校验">登录校验</h3>
+<ul>
+<li>配置路由的 meta 对象的 auth 属性</li>
+</ul>
+<pre><code class="language-javascript">const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: () =&gt; import('../views/Home.vue'),
+    meta: { title: '首页', keepAlive: false, auth: false },
+  },
+  {
+    path: '/mine',
+    name: 'mine',
+    component: () =&gt; import('../views/mine.vue'),
+    meta: { title: '我的', keepAlive: false, auth: true },
+  },
+]
+</code></pre>
+<ul>
+<li>在路由首页进行判断。</li>
+</ul>
+<blockquote>
+<p>当<code>to.meta.auth</code>为<code>true</code>(需要登录)，且不存在登录信息缓存时，需要重定向去登录页面</p>
+</blockquote>
+<pre><code class="language-javascript">router.beforeEach((to, from, next) =&gt; {
+  document.title = to.meta.title
+  const userInfo = sessionStorage.getItem('userInfo') || null
+  if (!userInfo &amp;&amp; to.meta.auth) {
+    next('/login')
+  } else {
+    next()
+  }
+})
+</code></pre>
+<h3 id="页面缓存配置">页面缓存配置</h3>
+<ul>
+<li>通过配置路由的 meta 对象的 keepAlive 属性值来区分页面是否需要缓存</li>
+</ul>
+<pre><code class="language-javascript">const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: () =&gt; import('../views/Home.vue'),
+    meta: { title: '首页', keepAlive: false, auth: false },
+  },
+  {
+    path: '/list',
+    name: 'list',
+    component: () =&gt; import('../views/list.vue'),
+    meta: { title: '列表页', keepAlive: true, auth: false },
+  },
+]
+</code></pre>
+<ul>
+<li>在 app.vue 做缓存判断</li>
+</ul>
+<pre><code class="language-html">&lt;div id=&quot;app&quot;&gt;
+  &lt;router-view v-if=&quot;!$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;
+  &lt;keep-alive&gt;
+    &lt;router-view v-if=&quot;$route.meta.keepAlive&quot;&gt;&lt;/router-view&gt;
+  &lt;/keep-alive&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="多环境变量配置">多环境变量配置</h3>
+<p>1、在项目根目录中新建.env.*</p>
+<ul>
+<li>.env.development 本地开发环境配置</li>
+</ul>
+<pre><code>NODE_ENV='development'
+VUE_APP_ENV = 'development'
+复制代码
+</code></pre>
+<ul>
+<li>.env.test 测试环境配置</li>
+</ul>
+<pre><code>NODE_ENV='test'
+VUE_APP_ENV = 'test'
+</code></pre>
+<ul>
+<li>.env.production 正式环境配置</li>
+</ul>
+<pre><code>NODE_ENV='production'
+VUE_APP_ENV = 'production'
+</code></pre>
+<p>为了在不同环境配置更多的变量，我们在 src 文件下新建一个 config/index</p>
+<pre><code class="language-javascript">// 根据环境引入不同配置 process.env.NODE_ENV
+const config = require('./env.' + process.env.VUE_APP_ENV)
+module.exports = config
+</code></pre>
+<p>在同级目录下新建 <code>env.development.js</code>，<code>env.test.js</code>，<code>env.production.js</code>，在里面配置需要的变量。<br>
+以 env.development.js 为例</p>
+<pre><code class="language-javascript">module.exports = {
+  baseUrl: 'http://localhost:8089', // 项目地址
+  baseApi: 'https://www.mock.com/api', // 本地api请求地址
+}
+</code></pre>
+<p>2、配置打包命令</p>
+<p>package.json 里的 scripts 不同环境的打包命令</p>
+<ul>
+<li>通过 npm run serve 启动本地</li>
+<li>通过 npm run test 打包测试</li>
+<li>通过 npm run build 打包正式</li>
+</ul>
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;dev&quot;: &quot;vue-cli-service serve&quot;,
+  &quot;build&quot;: &quot;vue-cli-service build&quot;,
+  &quot;test&quot;: &quot;vue-cli-service build --mode test&quot;,
+}
+</code></pre>
+<h3 id="vueconfigjs-配置">vue.config.js 配置</h3>
+<p>配置我们项目的东西主要包括</p>
+<ul>
+<li>打包后文件输出位置</li>
+<li>关闭生产环境 souecemap</li>
+<li>配置 rem 转化 px</li>
+<li>配置 alias 别名</li>
+<li>去除生产环境 console</li>
+<li>跨域代理设置</li>
+</ul>
+<pre><code class="language-javascript">module.exports = {
+  publicPath: './', // 默认为'/'
+
+  // 将构建好的文件输出到哪里，本司要求
+  outputDir: 'dist/static',
+
+  // 放置生成的静态资源(js、css、img、fonts)的目录。
+  assetsDir: 'static',
+
+  // 指定生成的 index.html 的输出路径
+  indexPath: 'index.html',
+
+  // 是否使用包含运行时编译器的 Vue 构建版本。
+  runtimeCompiler: false,
+
+  transpileDependencies: [],
+
+  // 如果你不需要生产环境的 source map
+  productionSourceMap: false,
+
+  // 配置css
+  css: {
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: true,
+    sourceMap: true,
+    // css预设器配置项
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 100,
+          }),
+        ],
+      },
+    },
+    // 启用 CSS modules for all css / pre-processor files. vant按需引入一定要开启
+    requireModuleExtension: true,
+  },
+
+  // 是一个函数，允许对内部的 webpack 配置进行更细粒度的修改。
+  chainWebpack: (config) =&gt; {
+    // 配置别名
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('assets', resolve('src/assets'))
+      .set('components', resolve('src/components'))
+      .set('views', resolve('src/views'))
+
+    config.optimization.minimizer('terser').tap((args) =&gt; {
+      // 去除生产环境console
+      args[0].terserOptions.compress.drop_console = true
+      return args
+    })
+  },
+
+  // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
+  parallel: require('os').cpus().length &gt; 1,
+
+  devServer: {
+    host: '0.0.0.0',
+    port: 8899, // 端口号
+    https: false, // https:{type:Boolean}
+    open: false, // 配置自动启动浏览器  open: 'Google Chrome'-默认启动谷歌
+
+    // 配置多个代理
+    proxy: {
+      '/api': {
+        target: 'https://www.mock.com',
+        ws: true, // 代理的WebSockets
+        changeOrigin: true, // 允许websockets跨域
+        pathRewrite: {
+          '^/api': '',
+        },
+      },
+    },
+  },
+}
+</code></pre>
+<h3 id="webpack-可视化分析">webpack 可视化分析</h3>
+<ul>
+<li>
+<p>安装 <code>webpack-bundle-analyzer</code></p>
+<pre><code>npm install webpack-bundle-analyzer -D
+</code></pre>
+</li>
+<li>
+<p>插件配置</p>
+<p>在 vue.config.js 配置</p>
+<pre><code class="language-javascript">const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+configureWebpack: (config) =&gt; {
+  if (process.env.NODE_ENV === 'production') {
+    config.plugins.push(new BundleAnalyzerPlugin())
+  }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="gzip压缩">gzip压缩</h3>
+<ul>
+<li>
+<p>安装插件</p>
+<pre><code class="language-bash">npm install compression-webpack-plugin -D
+</code></pre>
+</li>
+<li>
+<p>配置插件</p>
+<pre><code class="language-javascript">configureWebpack: (config) =&gt; {
+    if (process.env.NODE_ENV === 'production') {
+        config.plugins.push(new BundleAnalyzerPlugin())
+        config.plugins.push(new CompressionPlugin({ // gzip压缩配置
+            test: /\.js$|\.html$|\.css/, // 匹配文件名
+            threshold: 10240, // 对超过10kb的数据进行压缩
+            deleteOriginalAssets: false // 是否删除原文件
+        }))
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="添加骨架屏">添加骨架屏</h3>
+<ul>
+<li>
+<p>安装插件</p>
+<pre><code class="language-bash">npm install vue-skeleton-webpack-plugin
+</code></pre>
+</li>
+<li>
+<p>配置插件</p>
+<pre><code class="language-javascript">configureWebpack: (config) =&gt; {
+    config.plugins.push(new SkeletonWebpackPlugin({
+      webpackConfig: {
+        entry: {
+          app: resolve('./src/common/entry-skeleton.js')
+        }
+      },
+      minimize: true,
+      quiet: true,
+      router: {
+        mode: 'hash',
+        routes: [
+          { path: '/', skeletonId: 'skeleton1' },
+          { path: '/about', skeletonId: 'skeleton2' }
+        ]
+      }
+    }))
+}
+</code></pre>
+</li>
+</ul>
+
+                          </div>
+                        </div>
+                        <div class="layout-post-social">
+                          <div class="item reader">
+                            <div id="/post/da-jian-yi-ge-vue-cli4webpackvant-yi-dong-duan-kuang-jia/" class="leancloud-visitors view"
+                              data-flag-title="搭建一个vue-cli4+webpack+vant移动端框架">
+                              <span class="post-meta-item-text">阅读 </span>
+                              <span class="leancloud-visitors-count"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="layout-post-navigation">
+                          <div class="navigation-list">
+                            
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://chant520.github.io/hello-gridea/" class="title">
+                                      <h4>Hello Gridea</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item">2018-12-12</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://chant520.github.io/hello-gridea/"
+                                    style="background-image: url('https://chant520.github.io/post-images/hello-gridea.png');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+
+                        <div class="layout-comments"></div>
+                        
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 d-none d-lg-block">
+                      <div class="layout-post-sidebar">
+                        <div class="layout-sidebar-item">
+                          <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#vue%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE">vue初始化项目</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85vant">安装vant</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85babel-plugin-import">安装<code>babel-plugin-import</code></a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEbabel-plugin-import">配置<code>babel-plugin-import</code></a></li>
+<li><a href="#rem-%E9%80%82%E9%85%8D">rem 适配</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8axios%E5%B0%81%E8%A3%85%E8%AF%B7%E6%B1%82">使用<code>axios</code>封装请求</a></li>
+<li><a href="#%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%87%BD%E6%95%B0%E5%B0%81%E8%A3%85">工具类函数封装</a></li>
+<li><a href="#vue-router-%E9%85%8D%E7%BD%AE">vue-router 配置</a></li>
+<li><a href="#%E6%94%B9%E5%8F%98%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%9A%84-title">改变单页面应用的 title</a></li>
+<li><a href="#%E7%99%BB%E5%BD%95%E6%A0%A1%E9%AA%8C">登录校验</a></li>
+<li><a href="#%E9%A1%B5%E9%9D%A2%E7%BC%93%E5%AD%98%E9%85%8D%E7%BD%AE">页面缓存配置</a></li>
+<li><a href="#%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE">多环境变量配置</a></li>
+<li><a href="#vueconfigjs-%E9%85%8D%E7%BD%AE">vue.config.js 配置</a></li>
+<li><a href="#webpack-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90">webpack 可视化分析</a></li>
+<li><a href="#gzip%E5%8E%8B%E7%BC%A9">gzip压缩</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E9%AA%A8%E6%9E%B6%E5%B1%8F">添加骨架屏</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-totop d-none"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+
+    	<div class="layout-footer">
+
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+					<div class="footer">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="footer-copy">
+									
+									Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+									<div class="footer-icp d-none d-sm-inline-block">
+										<span class="px-2">⋅</span>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 d-none d-md-block">
+								<div class="footer-links">
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src='https://chant520.github.io/media/scripts/main.js'></script>
+	
+
+  </div>
+</body>
+
+</html>
